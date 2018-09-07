@@ -9,6 +9,16 @@ using cs225::HSLAPixel;
 
 
 void rotate(std::string inputFile, std::string outputFile) {
+  unsigned int w = width().inputFile;
+  unsigned int h = height().inputFile;
+  PNG newPic = PNG(inputFile);
+  for (int i = 0; i < h; i++) {
+    for (int j = 0; j < w; j++) {
+      HSLAPixel a = inputFile.getPixel(i,j);
+      HSLAPixel newLocation = newPic.getPixel(height - 1 -i,width - 1 - j);
+      newLocation = a;
+    }
+  }
   // TODO: Part 2
 }
 
